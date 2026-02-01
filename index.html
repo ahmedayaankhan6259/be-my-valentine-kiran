@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Be My Valentine 💖</title>
+  <title>Kiran 💖 Valentine</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       height: 100vh;
@@ -20,61 +24,78 @@
     .box {
       text-align: center;
       color: white;
+      padding: 20px;
+      width: 100%;
+      max-width: 400px;
     }
 
     h1 {
-      font-size: 2.8rem;
+      font-size: clamp(2rem, 6vw, 3rem);
       margin-bottom: 30px;
     }
 
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
     button {
-      padding: 15px 30px;
+      padding: 16px 28px;
       font-size: 1.2rem;
       border: none;
-      border-radius: 10px;
+      border-radius: 14px;
       cursor: pointer;
       transition: all 0.3s ease;
+      min-width: 120px;
     }
 
     #yes {
       background: #2ecc71;
       color: white;
-      z-index: 2;
       position: relative;
+      z-index: 2;
     }
 
     #no {
       background: #e74c3c;
       color: white;
-      margin-left: 15px;
+      z-index: 1;
     }
   </style>
 </head>
 <body>
 
   <div class="box">
-    <h1>Will you be my Valentine? 💘</h1>
-    <button id="yes" onclick="yesClicked()">Yes 💖</button>
-    <button id="no" onclick="noClicked()">No 😭</button>
+    <h1>Kiran 💖<br>Will you be my Valentine?</h1>
+
+    <div class="buttons">
+      <button id="yes" onclick="yesClicked()">Yes 💘</button>
+      <button id="no" onclick="noClicked()">No 😭</button>
+    </div>
   </div>
 
   <script>
     let scale = 1;
 
     function noClicked() {
-      scale += 0.25;
+      scale += 0.35;
+
       const yes = document.getElementById("yes");
 
       yes.style.transform = `scale(${scale})`;
 
-      if (scale >= 4.5) {
+      // Mobile-friendly takeover
+      if (scale >= 4) {
         yes.style.position = "fixed";
         yes.style.top = "0";
         yes.style.left = "0";
         yes.style.width = "100vw";
         yes.style.height = "100vh";
-        yes.style.fontSize = "4rem";
-        yes.innerHTML = "YES 💖";
+        yes.style.borderRadius = "0";
+        yes.style.fontSize = "clamp(2.5rem, 8vw, 4rem)";
+        yes.innerText = "YES KIRAN 💖";
       }
     }
 
@@ -86,12 +107,13 @@
           display:flex;
           justify-content:center;
           align-items:center;
+          text-align:center;
           background:linear-gradient(135deg,#ff5f9e,#ff9ebc);
           color:white;
-          font-size:3rem;
-          text-align:center;
+          padding:20px;
+          font-size:clamp(2rem,6vw,3rem);
         ">
-          YAYYYY 😍💞<br>
+          KIRAN 😍💞<br>
           You’re officially my Valentine 💘
         </div>
       `;
